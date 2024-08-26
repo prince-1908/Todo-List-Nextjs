@@ -21,6 +21,13 @@ export default function Home() {
 			setTask("");
 		} else alert(" Add a To Do");
 	}
+// deletion
+	const deleteTodoList = (id: number) => {
+	  	setTodoList(todoList.filter((todo)=>todo.id !==id));
+		console.log(id)
+};
+
+// --
 
 	const todoToodle = (id: number) => {
 		setTodoList((prev) => prev.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo)));
@@ -54,7 +61,7 @@ export default function Home() {
 									{todo.task}
 								</p>
 								<button>{"✏️"}</button>
-								<button>{" ❌"}</button>
+								<button onClick={()=>deleteTodoList(todo.id)}>{" ❌"}</button>
 							</div>
 						))}
 					</div>
